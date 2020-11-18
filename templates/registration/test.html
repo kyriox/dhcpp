@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}
+{{title}}
+{% endblock %}
+
+{% block header %}
+{{header}}
+{% endblock %}
+
+{% block content %}
+<table>
+  <tr><th>Rol name</th><th>description</th></tr>
+  {% for item in lista %}
+  <tr>
+    <td
+      {% if item.rol_name == "rol 1" %}
+      style="color:blue;"
+      {% endif %}
+      >{{item.rol_name.upper}}</td><td>{{item.description}}</td>
+  </tr>
+  {% endfor %}
+</table>
+<table>
+  {% for item in formulario %}
+  
+  <tr><td>{{item.label_tag}}{% if item.field.required %}<span style="color:red" > *</span> {% endif %}
+    </td> <td>{{item}}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

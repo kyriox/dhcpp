@@ -20,5 +20,8 @@ class Person(models.Model):
         sex = models.CharField(max_length=1, choices=(('1','F'),('2','M'),('3','O')))
         role = models.ForeignKey(Role,on_delete=models.CASCADE)
 
-           
-        
+class PersonForm(ModelForm):
+        class Meta:
+                model=Person
+                fields='__all__'
+                exclude = ('role',) 
