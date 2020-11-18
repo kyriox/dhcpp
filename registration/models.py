@@ -7,7 +7,6 @@ from django.utils.safestring import mark_safe
 class Role(models.Model):
         rol_name = models.CharField(max_length=128, null=False, blank=False, unique=True)
         description = models.CharField(max_length=128, null=True, blank=True)
-
         def __unicode__():
                 return f'{self.rol_name}' 
 
