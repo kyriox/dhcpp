@@ -49,7 +49,7 @@ class Computer(models.Model):
 
 class MacAdress(models.Model):
         mac = models.CharField(max_length = 12, null = False, blank = False)
-        computer = models.OneToOneField(Computer, on_delete=models.CASCADE)
+        computer = models.ForeignKey(Computer, on_delete=models.CASCADE)
 
 
 class PersonForm(ModelForm):
