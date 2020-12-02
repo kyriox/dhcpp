@@ -12,11 +12,13 @@
 </head>
 
 <body>
+  <h1 style="background-color: rgb(83, 91, 207); color: rgb(255, 255, 255); text-align: center;">Facultad de Ingeniería Eléctrica</h1>
+  {%include "superior/barra.html"%}
   <div>
     <div style="color:blue;" class="header">
       <h3>
       {% block header %}
-      el encabezado
+
       {% endblock %}
       </h3>
     </div>
@@ -27,9 +29,10 @@
     </div>
     <div class="footer">
       {% block footer %}
-      el pie de pagina
+      <!--el pie de pagina-->
       {% endblock %}
-      &copy; Facultad de Ingeniería Eléctrica
+      <p style="background-color: rgb(83, 91, 207); color: rgb(255, 255, 255); text-align: right;">&copy; Facultad de Ingeniería Eléctrica</p>
+      
     </div>
   </div>
 </body>

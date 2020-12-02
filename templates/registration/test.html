@@ -8,6 +8,7 @@
 {% endblock %}
 
 {% block content %}
+<form action="" method="post"></form>
 <table>
   <tr><th>Rol name</th><th>description</th></tr>
   {% for item in lista %}
@@ -27,7 +28,10 @@
     </td> <td>{{item}}</td></tr>
 {% endfor %}
 </table>
+
 {% endblock %}
+
+
 
 {% block footer %}
 {% endblock %}
