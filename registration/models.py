@@ -43,7 +43,6 @@ class Computer(models.Model):
         host_name = models.CharField(max_length=128, null=False, blank=False)
         op_sys = models.CharField(max_length=128, null=False, blank=False, default=None)
         server = models.BooleanField(default=False, verbose_name='It is server?')
-
         def __str__(self):
                 return self.host_name
 
@@ -51,9 +50,19 @@ class MacAdress(models.Model):
         mac = models.CharField(max_length = 12, null = False, blank = False)
         computer = models.ForeignKey(Computer, on_delete=models.CASCADE)
 
-
 class PersonForm(ModelForm):
         class Meta:
                 model=Person
                 fields='__all__'
-                exclude = ('role',) 
+                exclude = ('role',)  
+
+class ComputerForm(ModelForm):
+        class Meta:
+                model=Computer
+                fields='__all__'
+                exclude = ('role',)
+
+class MacAdressForm(ModelForm):
+        class Meta:
+                model=MacAdress
+                fields='__all__'
