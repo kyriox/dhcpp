@@ -7,8 +7,8 @@ from django.utils.safestring import mark_safe
 class Role(models.Model):
         rol_name = models.CharField(max_length=128, null=False, blank=False, unique=True)
         description = models.CharField(max_length=128, null=True, blank=True)
-        def __unicode__():
-                return f'{self.rol_name}' 
+        #def __unicode__():
+        #       return f'{self.rol_name}' 
 
         def __str__(self):
                 return self.rol_name
@@ -16,8 +16,8 @@ class Role(models.Model):
 class Localization(models.Model):
         name = models.CharField(max_length=128, null=False, blank=False, unique=True)
         description = models.CharField(max_length=128, null=True, blank=True)
-        def __unicode__():
-                return f'{self.name}' 
+        #def __unicode__():
+        #        return f'{self.name}' 
 
         def __str__(self):
                 return self.name
@@ -48,12 +48,6 @@ class Computer(models.Model):
                 return self.host_name
 
 class MacAdress(models.Model):
-        mac = models.CharField(max_length = 12, null = False, blank = False)
+        mac = models.CharField(max_length = 17, null = False, blank = False)
         computer = models.ForeignKey(Computer, on_delete=models.CASCADE)
-
-
-class PersonForm(ModelForm):
-        class Meta:
-                model=Person
-                fields='__all__'
-                exclude = ('role',) 
+        

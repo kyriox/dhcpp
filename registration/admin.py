@@ -28,9 +28,13 @@ class LocalizationAdmin(admin.ModelAdmin):
     list_display=('name','description')
     #inlines=[ComputerInline]
 
+class MacAdressAdmin(admin.ModelAdmin):
+    list_display=('mac','computer')
+    search_fields=['computer']
+
 # Register your models here.
 admin.site.register(Person,PersonAdmin)
 admin.site.register(Role, RoleAdmin)
 admin.site.register(Computer, ComputerAdmin)
 admin.site.register(Localization, LocalizationAdmin)
-admin.site.register(MacAdress)
+admin.site.register(MacAdress, MacAdressAdmin)
