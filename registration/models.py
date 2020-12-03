@@ -6,10 +6,7 @@ from django.utils.safestring import mark_safe
 
 class Role(models.Model):
         rol_name = models.CharField(max_length=128, null=False, blank=False, unique=True)
-        description = models.CharField(max_length=128, null=True, blank=True)
-        #def __unicode__():
-        #       return f'{self.rol_name}' 
-
+        description = models.CharField(max_length=128, null=True, blank=True) 
         def __str__(self):
                 return self.rol_name
 
@@ -43,28 +40,14 @@ class Computer(models.Model):
         host_name = models.CharField(max_length=128, null=False, blank=False)
         op_sys = models.CharField(max_length=128, null=False, blank=False, default=None)
         server = models.BooleanField(default=False, verbose_name='It is server?')
+        valid = models.BooleanField(default=False)
         def __str__(self):
                 return self.host_name
 
-class MacAdress(models.Model):
+class MacAddress(models.Model):
         mac = models.CharField(max_length = 17, null = False, blank = False)
         computer = models.ForeignKey(Computer, on_delete=models.CASCADE)
 
 
-class PersonForm(ModelForm):
-        class Meta:
-                model=Person
-                fields='__all__'
-                exclude = ('role',)  
 
-class ComputerForm(ModelForm):
-        class Meta:
-                model=Computer
-                fields='__all__'
-                exclude = ('role',)
-
-class MacAdressForm(ModelForm):
-        class Meta:
-                model=MacAdress
-                fields='__all__'
 

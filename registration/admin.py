@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import Person, Role, Computer, Localization, MacAdress
+from . models import Person, Role, Computer, Localization, MacAddress
 
 class PersonAdmin(admin.ModelAdmin):
     list_display=('first_name','last_name','email')
@@ -11,7 +11,7 @@ class RoleAdmin(admin.ModelAdmin):
 
 
 class MacInline(admin.TabularInline):
-    model = MacAdress
+    model = MacAddress
     # Mostramos un inline vacio por defecto
     extra = 1
 
@@ -28,7 +28,7 @@ class LocalizationAdmin(admin.ModelAdmin):
     list_display=('name','description')
     #inlines=[ComputerInline]
 
-class MacAdressAdmin(admin.ModelAdmin):
+class MacAddressAdmin(admin.ModelAdmin):
     list_display=('mac','computer')
     search_fields=['computer']
 
@@ -37,4 +37,4 @@ admin.site.register(Person,PersonAdmin)
 admin.site.register(Role, RoleAdmin)
 admin.site.register(Computer, ComputerAdmin)
 admin.site.register(Localization, LocalizationAdmin)
-admin.site.register(MacAdress, MacAdressAdmin)
+admin.site.register(MacAddress, MacAddressAdmin)
