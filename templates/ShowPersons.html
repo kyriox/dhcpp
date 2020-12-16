@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+{{title}}
+{% endblock %}
+
+{% block header %}
+{{header}}
+{% endblock %}
+
+{% block content %}
+
+    <h1>Listado de personas</h1>
+        <tr>
+            <th>Personas</th>
+            <th>Opciones<br></th>
+
+        </tr>
+
+        {% for p in personas %}
+        <tr>
+            <td><br>{{ p.first_name }}</td>
+            <td>
+                <a href="{% url 'mostrar_computadoras' p.id %}">Ver</a>
+            </td>
+        </tr>
+        {% endfor %}
+{% endblock %}

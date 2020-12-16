@@ -38,6 +38,21 @@ def regComputerPost(request):
          mac_object.save()
    return HttpResponse(computerForm)
 
+def showPerson(request):
+   personas = Person.objects.all()
+   return render(request, "ShowPersons.html", {'personas':personas})
+
+def deleteComputers(request, id):
+   persona = Computer.objects.get(id=id)
+   persona.delete()
+
+   return redirect(to="mostrar_personas")
+
+def showComputers(request, id):
+   persona = Person.objects.get(id=id)
+   computers = Computer.objects.filter(owner=persona)
+   return render(request,"ShowComputers.html",{'computers':computers})
+
 class FormPersonView(HttpRequest):
     def index(request):
        person = PersonForm()

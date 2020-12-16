@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+{{title}}
+{% endblock %}
+
+{% block header %}
+{{header}}
+{% endblock %}
+
+{% block content %}
+
+    <h1>Listado de Computadoras</h1>
+        <tr>
+            <th>Computadoras</th>
+            <th>Opciones<br></th>
+
+        </tr>
+
+        {% for c in computers %}
+        <tr>
+            <td><br>{{ c.host_name }}</td>
+            <td>
+                <a href="{% url 'borrar_computadoras' c.id %}">Borrar</a>
+            </td>
+        </tr>
+        {% endfor %}
+{% endblock %}
